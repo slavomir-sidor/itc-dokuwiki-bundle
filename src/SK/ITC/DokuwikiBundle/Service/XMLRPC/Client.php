@@ -24,8 +24,9 @@ class Client extends AbstractService
 	 *
 	 * @param Logger $logger
 	 * @param PhpXmlRpc $client
+	 * @param string $host
 	 */
-	public function __construct( Logger $logger, PhpXmlRpc $client )
+	public function __construct( Logger $logger, PhpXmlRpc $client, $host )
 	{
 		parent::__construct( $logger );
 	}
@@ -60,7 +61,9 @@ class Client extends AbstractService
 	 * Since 2009-03-06 (1)
 	 */
 	public function getPagelist()
-	{}
+	{
+
+	}
 
 	/**
 	 * Name dokuwiki.getVersion
@@ -69,7 +72,23 @@ class Client extends AbstractService
 	 * Description Returns the DokuWiki version of the remote Wiki.
 	 */
 	public function getVersion()
-	{}
+	{
+		$c = new xmlrpc_client('/lib/exe/xmlrpc.php', 'adminwiki.kreisbote.de', 80);
+
+		// enable debugging to see more infos :-) (well, not for production code)
+		$c->setDebug(1);
+
+		// create the XML message to send
+		$m = new xmlrpcmsg('dokuwiki.getVersion');
+
+		// send the message and wait for response
+		$r = $c->send($m);
+		if($r == false) die('error');
+		if(!$r->faultCode()){
+			// seems good. Now do whatever you want with the data
+			$v = php_xmlrpc_decode($r->value());
+			echo "$v";
+	}
 
 	/**
 	 * dokuwiki.getTime

@@ -6,6 +6,11 @@
 
 	<parameters>
 
+		<parameter key="sk.itc.dokuwikibundle.xmlrpc.client.host">http://dokuwiki.itcloud.sk</parameter>
+		<parameter key="sk.itc.dokuwikibundle.xmlrpc.client.class">SK\ITC\DokuwikiBundle\Service\XMLRPC\Client</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.xmlrpc.class">PhpXmlRpc\PhpXmlRpc</parameter>
+
 		<parameter key="sk.itc.dokuwikibundle.command.getPagesList.name">dokuwiki:getPagesList</parameter>
 		<parameter key="sk.itc.dokuwikibundle.command.getPagesList.description">SK ITC Dokuwiki Get Pages List</parameter>
 		<parameter key="sk.itc.dokuwikibundle.command.getPagesList.class">SK\ITC\DokuwikiBundle\Command\GetPagesListCommand</parameter>
@@ -129,10 +134,6 @@
 		<parameter key="sk.itc.dokuwikibundle.command.delAcl.name">dokuwiki:delAcl</parameter>
 		<parameter key="sk.itc.dokuwikibundle.command.delAcl.description">SK ITC Dokuwiki Delete Acl</parameter>
 		<parameter key="sk.itc.dokuwikibundle.command.delAcl.class">SK\ITC\DokuwikiBundle\Command\DelAclCommand</parameter>
-
-		<parameter key="sk.itc.dokuwikibundle.xmlrpc.client.class">SK\ITC\DokuwikiBundle\Service\XMLRPC\Client</parameter>
-
-		<parameter key="sk.itc.dokuwikibundle.xmlrpc.class">PhpXmlRpc\PhpXmlRpc</parameter>
 
 	</parameters>
 
