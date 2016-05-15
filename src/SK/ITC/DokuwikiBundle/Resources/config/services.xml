@@ -1,0 +1,877 @@
+<?xml version="1.0" ?>
+<container
+	xmlns="http://symfony.com/schema/dic/services"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+	<parameters>
+
+		<parameter key="sk.itc.dokuwikibundle.command.getPagesList.name">dokuwiki:getPagesList</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getPagesList.description">SK ITC Dokuwiki Get Pages List</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getPagesList.class">SK\ITC\DokuwikiBundle\Command\GetPagesListCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.getVersion.name">dokuwiki:getVersion</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getVersion.description">SK ITC Dokuwiki Get Version</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getVersion.class">SK\ITC\DokuwikiBundle\Command\GetVersionCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.getTime.name">dokuwiki:getTime</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getTime.description">SK ITC Dokuwiki Get Time</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getTime.class">SK\ITC\DokuwikiBundle\Command\GetTimeCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.getXMLRPCAPIVersion.name">dokuwiki:getXMLRPCAPIVersion</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getXMLRPCAPIVersion.description">SK ITC Dokuwiki Get XML RPC API Version</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getXMLRPCAPIVersion.class">SK\ITC\DokuwikiBundle\Command\GetXMLRPCAPIVersionCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.login.name">dokuwiki:login</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.login.description">SK ITC Dokuwiki Login</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.login.class">SK\ITC\DokuwikiBundle\Command\LoginCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.search.name">dokuwiki:search</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.search.description">SK ITC Dokuwiki Search</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.search.class">SK\ITC\DokuwikiBundle\Command\SearchCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.getTitle.name">dokuwiki:getTitle</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getTitle.description">SK ITC Dokuwiki getTitle</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getTitle.class">SK\ITC\DokuwikiBundle\Command\GetTitleCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.appendPage.name">dokuwiki:appendPage</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.appendPage.description">SK ITC Dokuwiki Append Page</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.appendPage.class">SK\ITC\DokuwikiBundle\Command\AppendPageCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.setLocks.name">dokuwiki:setLocks</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.setLocks.description">SK ITC Dokuwiki Set Locks</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.setLocks.class">SK\ITC\DokuwikiBundle\Command\SetLocksCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.getRPCVersionSupported.name">dokuwiki:getRPCVersionSupported</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getRPCVersionSupported.description">SK ITC Dokuwiki Get RPC Version Supported</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getRPCVersionSupported.class">SK\ITC\DokuwikiBundle\Command\GetRPCVersionSupportedCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.aclCheck.name">dokuwiki:aclCheck</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.aclCheck.description">SK ITC Dokuwiki ACL Check</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.aclCheck.class">SK\ITC\DokuwikiBundle\Command\ACLCheckCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.getPage.name">dokuwiki:getPage</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getPage.description">SK ITC Dokuwiki Get Page</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getPage.class">SK\ITC\DokuwikiBundle\Command\GetPageCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.getPageVersion.name">dokuwiki:getPageVersion</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getPageVersion.description">SK ITC Dokuwiki Get Page Version</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getPageVersion.class">SK\ITC\DokuwikiBundle\Command\GetPageVersionCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.getPageVersions.name">dokuwiki:getPageVersions</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getPageVersions.description">SK ITC Dokuwiki Get Page Versions</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getPageVersions.class">SK\ITC\DokuwikiBundle\Command\GetPageVersionsCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.getPageInfo.name">dokuwiki:getPageInfo</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getPageInfo.description">SK ITC Dokuwiki Get Page Info</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getPageInfo.class">SK\ITC\DokuwikiBundle\Command\GetPageInfoCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.getPageInfoVersion.name">dokuwiki:getPageInfoVersion</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getPageInfoVersion.description">SK ITC Dokuwiki Get Page Info Version</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getPageInfoVersion.class">SK\ITC\DokuwikiBundle\Command\GetPageInfoVersionCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.getPageHTML.name">dokuwiki:getPageHTML</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getPageHTML.description">SK ITC Dokuwiki Get Page HTML</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getPageHTML.class">SK\ITC\DokuwikiBundle\Command\GetPageHTMLCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.getPageHTMLVersion.name">dokuwiki:getPageHTMLVersion</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getPageHTMLVersion.description">SK ITC Dokuwiki Get Page HTML Version</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getPageHTMLVersion.class">SK\ITC\DokuwikiBundle\Command\GetPageHTMLVersionCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.putPage.name">dokuwiki:putPage</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.putPage.description">SK ITC Dokuwiki Put Page</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.putPage.class">SK\ITC\DokuwikiBundle\Command\PutPageCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.listLinks.name">dokuwiki:listLinks</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.listLinks.description">SK ITC Dokuwiki List Links</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.listLinks.class">SK\ITC\DokuwikiBundle\Command\ListLinksCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.getAllPages.name">dokuwiki:getAllPages</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getAllPages.description">SK ITC Dokuwiki Get All Pages</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getAllPages.class">SK\ITC\DokuwikiBundle\Command\GetAllPagesCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.getBackLinks.name">dokuwiki:getBackLinks</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getBackLinks.description">SK ITC Dokuwiki Get Back Links</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getBackLinks.class">SK\ITC\DokuwikiBundle\Command\GetBackLinksCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.getRecentChanges.name">dokuwiki:getRecentChanges</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getRecentChanges.description">SK ITC Dokuwiki Get Recent Changes</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getRecentChanges.class">SK\ITC\DokuwikiBundle\Command\GetRecentChangesCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.getRecentMediaChanges.name">dokuwiki:getRecentMediaChanges</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getRecentMediaChanges.description">SK ITC Dokuwiki Get Recent Media Changes</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getRecentMediaChanges.class">SK\ITC\DokuwikiBundle\Command\GetRecentMediaChangesCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.getAttachments.name">dokuwiki:getAttachments</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getAttachments.description">SK ITC Dokuwiki Get Attachments</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getAttachments.class">SK\ITC\DokuwikiBundle\Command\GetAttachmentsCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.getAttachment.name">dokuwiki:getAttachment</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getAttachment.description">SK ITC Dokuwiki Get Attachment</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getAttachment.class">SK\ITC\DokuwikiBundle\Command\GetAttachmentCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.getAttachmentInfo.name">dokuwiki:getAttachmentInfo</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getAttachmentInfo.description">SK ITC Dokuwiki Get Attachment Info</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.getAttachmentInfo.class">SK\ITC\DokuwikiBundle\Command\GetAttachmentInfoCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.putAttachment.name">dokuwiki:putAttachment</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.putAttachment.description">SK ITC Dokuwiki Put Attachment</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.putAttachment.class">SK\ITC\DokuwikiBundle\Command\PutAttachmentCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.deleteAttachment.name">dokuwiki:deleteAttachment</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.deleteAttachment.description">SK ITC Dokuwiki Delete Attachment</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.deleteAttachment.class">SK\ITC\DokuwikiBundle\Command\FeleteAttachmentCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.addAcl.name">dokuwiki:addAcl</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.addAcl.description">SK ITC Dokuwiki Add Acl</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.addAcl.class">SK\ITC\DokuwikiBundle\Command\AddAclCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.command.delAcl.name">dokuwiki:delAcl</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.delAcl.description">SK ITC Dokuwiki Delete Acl</parameter>
+		<parameter key="sk.itc.dokuwikibundle.command.delAcl.class">SK\ITC\DokuwikiBundle\Command\DelAclCommand</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.xmlrpc.client.class">SK\ITC\DokuwikiBundle\Service\XMLRPC\Client</parameter>
+
+		<parameter key="sk.itc.dokuwikibundle.xmlrpc.class">PhpXmlRpc\PhpXmlRpc</parameter>
+
+	</parameters>
+
+	<services>
+
+		<service
+			id="sk.itc.dokuwikibundle.xmlrpc"
+			class="%sk.itc.dokuwikibundle.xmlrpc.class%" />
+
+		<service
+			id="sk.itc.dokuwikibundle.xmlrpc.client"
+			class="%sk.itc.dokuwikibundle.xmlrpc.client.class%">
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.getPagesList"
+			class="%sk.itc.dokuwikibundle.command.getPagesList.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.getPagesList.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.getPagesList.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.getVersion"
+			class="%sk.itc.dokuwikibundle.command.getVersion.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.getVersion.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.getVersion.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+
+
+		<service
+			id="sk.itc.dokuwikibundle.command.getTime"
+			class="%sk.itc.dokuwikibundle.command.getTime.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.getTime.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.getTime.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.getXMLRPCAPIVersion"
+			class="%sk.itc.dokuwikibundle.command.getXMLRPCAPIVersion.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.getXMLRPCAPIVersion.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.getXMLRPCAPIVersion.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.login"
+			class="%sk.itc.dokuwikibundle.command.login.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.login.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.login.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.search"
+			class="%sk.itc.dokuwikibundle.command.search.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.search.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.search.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.getTitle"
+			class="%sk.itc.dokuwikibundle.command.getTitle.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.getTitle.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.getTitle.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.appendPage"
+			class="%sk.itc.dokuwikibundle.command.appendPage.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.appendPage.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.appendPage.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.setLocks"
+			class="%sk.itc.dokuwikibundle.command.setLocks.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.setLocks.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.setLocks.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.getRPCVersionSupported"
+			class="%sk.itc.dokuwikibundle.command.getRPCVersionSupported.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.getRPCVersionSupported.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.getRPCVersionSupported.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.aclCheck"
+			class="%sk.itc.dokuwikibundle.command.aclCheck.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.aclCheck.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.aclCheck.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.getPage"
+			class="%sk.itc.dokuwikibundle.command.getPage.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.getPage.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.getPage.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.getPageVersion"
+			class="%sk.itc.dokuwikibundle.command.getPageVersion.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.getPageVersion.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.getPageVersion.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+
+		<service
+			id="sk.itc.dokuwikibundle.command.getPageVersions"
+			class="%sk.itc.dokuwikibundle.command.getPageVersions.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.getPageVersions.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.getPageVersions.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.getPageInfo"
+			class="%sk.itc.dokuwikibundle.command.getPageInfo.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.getPageInfo.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.getPageInfo.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.getPageInfoVersion"
+			class="%sk.itc.dokuwikibundle.command.getPageInfoVersion.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.getPageInfoVersion.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.getPageInfoVersion.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.getPageHTML"
+			class="%sk.itc.dokuwikibundle.command.getPageHTML.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.getPageHTML.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.getPageHTML.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.getPageHTMLVersion"
+			class="%sk.itc.dokuwikibundle.command.getPageHTMLVersion.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.getPageHTMLVersion.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.getPageHTMLVersion.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.putPage"
+			class="%sk.itc.dokuwikibundle.command.putPage.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.putPage.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.putPage.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.listLinks"
+			class="%sk.itc.dokuwikibundle.command.listLinks.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.listLinks.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.listLinks.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.getAllPages"
+			class="%sk.itc.dokuwikibundle.command.getAllPages.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.getAllPages.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.getAllPages.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.getBackLinks"
+			class="%sk.itc.dokuwikibundle.command.getBackLinks.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.getBackLinks.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.getBackLinks.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.getRecentChanges"
+			class="%sk.itc.dokuwikibundle.command.getRecentChanges.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.getRecentChanges.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.getRecentChanges.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.getRecentMediaChanges"
+			class="%sk.itc.dokuwikibundle.command.getRecentMediaChanges.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.getRecentMediaChanges.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.getRecentMediaChanges.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.getAttachments"
+			class="%sk.itc.dokuwikibundle.command.getAttachments.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.getAttachments.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.getAttachments.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.getAttachment"
+			class="%sk.itc.dokuwikibundle.command.getAttachment.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.getAttachment.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.getAttachment.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.getAttachmentInfo"
+			class="%sk.itc.dokuwikibundle.command.getAttachmentInfo.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.getAttachmentInfo.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.getAttachmentInfo.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.putAttachment"
+			class="%sk.itc.dokuwikibundle.command.putAttachment.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.putAttachment.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.putAttachment.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.deleteAttachment"
+			class="%sk.itc.dokuwikibundle.command.deleteAttachment.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.deleteAttachment.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.deleteAttachment.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.addAcl"
+			class="%sk.itc.dokuwikibundle.command.addAcl.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.addAcl.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.addAcl.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+		<service
+			id="sk.itc.dokuwikibundle.command.delAcl"
+			class="%sk.itc.dokuwikibundle.command.delAcl.class%">
+
+			<argument type="string">%sk.itc.dokuwikibundle.command.delAcl.name% </argument>
+			<argument type="string">%sk.itc.dokuwikibundle.command.delAcl.description% </argument>
+
+			<argument
+				type="service"
+				id="logger" />
+
+			<argument
+				type="service"
+				id="sk.itcbundle.table" />
+
+			<argument
+				type="service"
+				id="sk.itc.dokuwikibundle.xmlrpc.client" />
+
+			<tag name="console.command" />
+
+		</service>
+
+	</services>
+
+</container>

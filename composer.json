@@ -1,0 +1,38 @@
+{
+	"name" : "sk.itcloud.symfony/itc-dokuwiki-bundle",
+	"description" : "ITC Dokuwiki Bundle",
+	"type" : "bundle",
+	"license" : "LGPL",
+	"authors" : [{
+			"name" : "Slavomir Kuzma",
+			"email" : "slavomir.kuzma@gmail.com"
+		}
+	],
+	"minimum-stability" : "dev",
+	"autoload" : {
+		"psr-4" : {
+			"" : "src/"
+		}
+	},
+	"bin" : [
+		"bin/itc-pivotaltracker"
+	],
+	"config" : {
+		"bin-dir" : "bin",
+		"vendor-dir" : "vendor"
+	},
+	"require" : {
+		"php" : ">=5.4.0",
+		"symfony/console" : "3.0.6",
+		"sk.itcloud.symfony/itc-bundle" : "dev-master",
+		"phpxmlrpc/phpxmlrpc" : "4.0.1"
+	},
+	"require-dev" : {
+		"phpunit/phpunit" : "4.8.*"
+	},
+	"repositories" : [{
+			"type" : "vcs",
+			"url" : "git@github.com:slavomirkuzma/itc-bundle.git"
+		}
+	]
+}

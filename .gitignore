@@ -1,0 +1,15 @@
+/.*
+!.gitignore
+/composer.lock
+/target/
+/vendor/
+/doc/
+/bin/yuicompressor.jar
+/bin/phpuml
+/bin/phpunit
+/bin/paratest
+/bin/behat
+/bin/doctrine-dbal
+/bin/doctrine-migrations
+/bin/sql-formatter
+/bin/sauce_config

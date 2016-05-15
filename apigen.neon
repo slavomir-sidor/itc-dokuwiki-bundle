@@ -1,0 +1,6 @@
+source:
+    - ./src
+    - ./tests
+title: "ITC Dokuwiki API Client"
+
+destination: ./docs
