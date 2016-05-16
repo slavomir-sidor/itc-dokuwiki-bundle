@@ -1,6 +1,6 @@
 <?php
 /**
- * SK ITC Dokuwiki Bundle Command Get Pages List
+ * SK ITC Dokuwiki Bundle Command Get Attachments
  *
  * @author Slavomir Kuzma <slavomir.kuzma@gmail.com>
  */
@@ -14,7 +14,19 @@ use Monolog\Logger;
 use SK\ITCBundle\Command\TableCommand;
 use SK\ITC\DokuwikiBundle\Console\Command\AbstractCommand;
 
-class GetPagesListCommand extends AbstractCommand
+class GetAttachmentsCommand extends AbstractCommand
 {
 
+	/**
+	 * (non-PHPdoc)
+	 *
+	 * @see \Symfony\Component\Console\Command\Command::configure()
+	 */
+	protected function configure()
+	{
+		parent::configure();
+
+		$this->addOption( "--namespace", "ns", InputOption::VALUE_REQUIRED, "Dokuwiki namespace." );
+		$this->addOption( "--options", "o", InputOption::VALUE_REQUIRED, "Dokuwiki options." );
+	}
 }

@@ -6,6 +6,11 @@
 /doc/
 /bin/yuicompressor.jar
 /bin/phpuml
+/bin/doctrine
+/bin/doctrine-dbal
+/bin/doctrine.php
+/bin/itc
+/bin/itc-initd
 /bin/phpunit
 /bin/paratest
 /bin/behat
@@ -13,3 +18,4 @@
 /bin/doctrine-migrations
 /bin/sql-formatter
 /bin/sauce_config
+/bin/validate-json

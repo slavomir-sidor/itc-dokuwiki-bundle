@@ -13,11 +13,18 @@ class Client extends AbstractService
 {
 
 	/**
-	 * SK ITC Dokuwiki Bundle Service XMLRPC Client Client
+	 * SK ITC Dokuwiki Bundle Service XMLRPC Client
 	 *
 	 * @var PhpXmlRpc
 	 */
 	protected $client;
+
+	/**
+	 * SK ITC Dokuwiki Bundle Service XMLRPC Client Host
+	 *
+	 * @var string
+	 */
+	protected $host;
 
 	/**
 	 * Constructs SK ITC Dokuwiki Bundle Service XMLRPC Client
@@ -29,6 +36,9 @@ class Client extends AbstractService
 	public function __construct( Logger $logger, PhpXmlRpc $client, $host )
 	{
 		parent::__construct( $logger );
+
+		$this->setClient( $client );
+		$this->setHost( $host );
 	}
 
 	/**
@@ -36,7 +46,7 @@ class Client extends AbstractService
 	 *
 	 * @return the PhpXmlRpc
 	 */
-	public function getClient()
+	protected function getClient()
 	{
 		return $this->client;
 	}
@@ -46,9 +56,30 @@ class Client extends AbstractService
 	 *
 	 * @param PhpXmlRpc $client
 	 */
-	public function setClient( PhpXmlRpc $client )
+	protected function setClient( PhpXmlRpc $client )
 	{
 		$this->client = $client;
+		return $this;
+	}
+
+	/**
+	 * Gets ITC Dokuwiki Bundle Service XMLRPC Client Host
+	 *
+	 * @return string
+	 */
+	protected function getHost()
+	{
+		return $this->host;
+	}
+
+	/**
+	 * Sets ITC Dokuwiki Bundle Service XMLRPC Client Host
+	 *
+	 * @param string $host
+	 */
+	protected function setHost( $host )
+	{
+		$this->host = $host;
 		return $this;
 	}
 
@@ -59,10 +90,14 @@ class Client extends AbstractService
 	 * Data (array) list of page items
 	 * Description Lists all pages within a given namespace. The options are passed directly to search_allpages().
 	 * Since 2009-03-06 (1)
+	 *
+	 * @param string $namspace
+	 * @param array $options
+	 * @return array
 	 */
-	public function getPagelist()
+	public function getPagelist( $namspace, array $options )
 	{
-
+		$request = new Request();
 	}
 
 	/**
@@ -70,25 +105,11 @@ class Client extends AbstractService
 	 * Parameters -
 	 * Data (string) version number
 	 * Description Returns the DokuWiki version of the remote Wiki.
+	 *
+	 * @return string
 	 */
 	public function getVersion()
-	{
-		$c = new xmlrpc_client('/lib/exe/xmlrpc.php', 'adminwiki.kreisbote.de', 80);
-
-		// enable debugging to see more infos :-) (well, not for production code)
-		$c->setDebug(1);
-
-		// create the XML message to send
-		$m = new xmlrpcmsg('dokuwiki.getVersion');
-
-		// send the message and wait for response
-		$r = $c->send($m);
-		if($r == false) die('error');
-		if(!$r->faultCode()){
-			// seems good. Now do whatever you want with the data
-			$v = php_xmlrpc_decode($r->value());
-			echo "$v";
-	}
+	{}
 
 	/**
 	 * dokuwiki.getTime
@@ -98,6 +119,8 @@ class Client extends AbstractService
 	 * Data (int) timestamp
 	 * Description Returns the current time at the remote wiki server as Unix timestamp
 	 * Since 2009-03-06 (1)
+	 *
+	 * @return (int) timestamp
 	 */
 	public function getTime()
 	{}
@@ -110,6 +133,8 @@ class Client extends AbstractService
 	 * This is DokuWiki implementation specific and independent of the supported
 	 * standard API version returned by wiki.getRPCVersionSupported
 	 * Since 2009-03-06 (1)
+	 *
+	 * @return int version number
 	 */
 	public function getXMLRPCAPIVersion()
 	{}
@@ -123,29 +148,37 @@ class Client extends AbstractService
 	 * Description Uses the provided credentials to execute a login and will set cookies. This can be used to make authenticated requests afterwards.
 	 * Your client needs to support cookie handling. Alternatively use HTTP basic auth credentials.
 	 * Since 2009-03-06 (1)
+	 *
+	 * @param string $user
+	 * @param string $password
+	 * @return boolean
 	 */
-	public function login()
+	public function login( $user, $password )
 	{}
 
 	/**
 	 * Name dokuwiki.search
-	 * Parameters (string) a query string as described on search
-	 * Data (array) associative array with matching pages similar to what is returned by dokuwiki.getPagelist, snippets are provided for the first 15
-	 * results
+	 *
 	 * Description Performs a fulltext search
 	 * Since 2010-02-28 (3)
+	 *
+	 * @param string $query
+	 *        	a query string as described on search
+	 * @return array Data (array) associative array with matching pages similar to what is returned by dokuwiki.getPagelist, snippets are provided for
+	 *         the first 15 results
 	 */
-	public function search()
+	public function search( $query )
 	{}
 
 	/**
 	 * dokuwiki.getTitle
 	 *
 	 * Name dokuwiki.getTitle
-	 * Parameters -
-	 * Data (string) the title of the wiki
+	 *
 	 * Description Returns the title of the wiki
 	 * Since 2010-04-18 (4)
+	 *
+	 * @return string the title of the wiki
 	 */
 	public function getTitle()
 	{}
@@ -154,15 +187,21 @@ class Client extends AbstractService
 	 * dokuwiki.appendPage
 	 *
 	 * Name dokuwiki.appendPage
-	 * Parameters (string) pagename, (string) raw Wiki text, (array) attrs
-	 * Where attrs can contain the following:
-	 * $attrs['sum'] = (string) change summary
-	 * $attrs['minor'] = (boolean) minor
+	 *
 	 * Data (boolean)
 	 * Description Appends text to a Wiki Page.
 	 * Since 2010-11-20 (5)
+	 *
+	 * @param string $pagename
+	 * @param string $text
+	 *        	raw Wiki text
+	 * @param array $attr
+	 *        	Where attrs can contain the following:
+	 *        	$attrs['sum'] = (string) change summary
+	 *        	$attrs['minor'] = (boolean) minor
+	 * @return boolean
 	 */
-	public function appendPage()
+	public function appendPage( $pagename, $text, array $attr )
 	{}
 
 	/**
@@ -175,8 +214,12 @@ class Client extends AbstractService
 	 * array('locked'=>array(...), 'lockfail'=>array(...), 'unlocked'=>array(...), 'unlockfail'=>array(...))
 	 * Description Allows you to lock or unlock a whole bunch of pages at once. Useful when you are about to do an operation over multiple pages
 	 * Since 2009-03-06 (1)
+	 *
+	 *
+	 * @param array $list
+	 * @return array('locked'=>array(...), 'lockfail'=>array(...), 'unlocked'=>array(...), 'unlockfail'=>array(...))
 	 */
-	public function setLocks()
+	public function setLocks( array $list )
 	{}
 
 	/**
@@ -186,6 +229,8 @@ class Client extends AbstractService
 	 * Parameters -
 	 * Data (string) version number
 	 * Description Returns 2 with the supported RPC API version.
+	 *
+	 * @return string
 	 */
 	public function getRPCVersionSupported()
 	{}
@@ -197,8 +242,11 @@ class Client extends AbstractService
 	 * Parameters (string) pagename
 	 * Data (int) Permissions of given wiki page
 	 * Description Returns the permission of the given wikipage.
+	 *
+	 * @param string $pagename
+	 * @return int Permissions of given wiki page
 	 */
-	public function aclCheck()
+	public function aclCheck( $pagename )
 	{}
 
 	/**
@@ -208,8 +256,11 @@ class Client extends AbstractService
 	 * Parameters (string) pagename
 	 * Data (string) raw Wiki text
 	 * Description Returns the raw Wiki text for a page.
+	 *
+	 * @param string $pagename
+	 * @return string
 	 */
-	public function getPage()
+	public function getPage( $pagename )
 	{}
 
 	/**
@@ -219,8 +270,12 @@ class Client extends AbstractService
 	 * Parameters (string) pagename, (int) Timestamp
 	 * Data (string) raw Wiki text
 	 * Description Returns the raw Wiki text for a specific revision of a Wiki page.
+	 *
+	 * @param string $pagename
+	 * @param int $timestamp
+	 * @return string
 	 */
-	public function getPageVersion()
+	public function getPageVersion( $pagename, $timestamp )
 	{}
 
 	/**
@@ -238,8 +293,12 @@ class Client extends AbstractService
 	 * $data['version'] = page version as timestamp
 	 * Description Returns the available versions of a Wiki page. The number of pages in the result is controlled via the recent configuration
 	 * setting. The offset can be used to list earlier versions in the history.
+	 *
+	 * @param string $pagename
+	 * @param int $offset
+	 * @return array
 	 */
-	public function getPageVersions()
+	public function getPageVersions( $pagename, $offset )
 	{}
 
 	/**
@@ -254,8 +313,11 @@ class Client extends AbstractService
 	 * $data['author'] = author of the Wiki page.
 	 * $data['version'] = page version as timestamp
 	 * Description Returns information about a Wiki page.
+	 *
+	 * @param string $pagename
+	 * @return array
 	 */
-	public function getPageInfo()
+	public function getPageInfo( $pagename )
 	{}
 
 	/**
@@ -270,8 +332,12 @@ class Client extends AbstractService
 	 * $data['author'] = author of the Wiki page.
 	 * $data['version'] = page version as timestamp
 	 * Description Returns information about a specific version of a Wiki page.
+	 *
+	 * @param string $pagename
+	 * @param int $timestamp
+	 * @return array
 	 */
-	public function getPageInfoVersion()
+	public function getPageInfoVersion( $pagename, $timestamp )
 	{}
 
 	/**
@@ -281,8 +347,11 @@ class Client extends AbstractService
 	 * Parameters (string) pagename
 	 * Data (string) rendered HTML
 	 * Description Returns the rendered XHTML body of a Wiki page.
+	 *
+	 * @param string $pagename
+	 * @return string
 	 */
-	public function getPageHTML()
+	public function getPageHTML( $pagename )
 	{}
 
 	/**
@@ -292,8 +361,12 @@ class Client extends AbstractService
 	 * Parameters (string) pagename, (int) timestamp
 	 * Data (string) rendered HTML
 	 * Description Returns the rendered HTML of a specific version of a Wiki page.
+	 *
+	 * @param string $pagename
+	 * @param int $timestamp
+	 * @return string
 	 */
-	public function getPageHTMLVersion()
+	public function getPageHTMLVersion( $pagename, $timestamp )
 	{}
 
 	/**
@@ -306,8 +379,13 @@ class Client extends AbstractService
 	 * $attrs['minor'] = (boolean) minor
 	 * Data (boolean)
 	 * Description Saves a Wiki Page.
+	 *
+	 * @param string $pagename
+	 * @param string $text
+	 * @param array $attrs
+	 * @return boolean
 	 */
-	public function putPage()
+	public function putPage( $pagename, $text, array $attrs = null )
 	{}
 
 	/**
@@ -321,8 +399,11 @@ class Client extends AbstractService
 	 * $data['page'] = the wiki page (or the complete URL if extern)
 	 * $data['href'] = the complete URL
 	 * Description Returns a list of all links contained in a Wiki page.
+	 *
+	 * @param string $pagename
+	 * @return array
 	 */
-	public function listLinks()
+	public function listLinks( $pagename )
 	{}
 
 	/**
@@ -337,6 +418,8 @@ class Client extends AbstractService
 	 * $data['size'] = size in bytes
 	 * $data['lastModified'] = dateTime object of last modification date
 	 * Description Returns a list of all Wiki pages in the remote Wiki.
+	 *
+	 * @return array
 	 */
 	public function getAllPages()
 	{}
@@ -348,8 +431,11 @@ class Client extends AbstractService
 	 * Parameters (string) pagename
 	 * Data (array)
 	 * Description Returns a list of backlinks of a Wiki page.
+	 *
+	 * @param string $pagename
+	 * @return array
 	 */
-	public function getBackLinks()
+	public function getBackLinks( $pagename )
 	{}
 
 	/**
@@ -365,8 +451,11 @@ class Client extends AbstractService
 	 * $data['version'] = page version as timestamp
 	 * Description Returns a list of recent changes since given timestamp.
 	 * As stated in recent_changes: Only the most recent change for each page is listed, regardless of how many times that page was changed.
+	 *
+	 * @param int $timestamp
+	 * @return array
 	 */
-	public function getRecentChanges()
+	public function getRecentChanges( $timestamp )
 	{}
 
 	/**
@@ -383,8 +472,11 @@ class Client extends AbstractService
 	 * $data['perms'] = media permissions
 	 * $data['size'] = media size in bytes
 	 * Description Returns a list of recent changed media since given timestamp.
+	 *
+	 * @param int $timestamp
+	 * @return array
 	 */
-	public function getRecentMediaChanges()
+	public function getRecentMediaChanges( $timestamp )
 	{}
 
 	/**
@@ -403,8 +495,12 @@ class Client extends AbstractService
 	 * $data['writable'] = true if file is writable, false otherwise
 	 * $data['perms'] = permissions of file
 	 * Description Returns a list of media files in a given namespace. The options are passed directly to search_media()
+	 *
+	 * @param string $namespace
+	 * @param array $options
+	 * @return array
 	 */
-	public function getAttachments()
+	public function getAttachments( $namespace, array $options = null )
 	{}
 
 	/**
@@ -414,8 +510,11 @@ class Client extends AbstractService
 	 * Parameters (String) id
 	 * Data (string) the data of the file, encoded in base64
 	 * Description Returns the binary data of a media file
+	 *
+	 * @param string $id
+	 * @return string
 	 */
-	public function getAttachment()
+	public function getAttachment( $id )
 	{}
 
 	/**
@@ -428,8 +527,11 @@ class Client extends AbstractService
 	 * $data['size'] = size in bytes
 	 * $data['lastModified'] = modification date as XML-RPC Date object
 	 * Description Returns information about a media file
+	 *
+	 * @param string $id
+	 * @return array
 	 */
-	public function getAttachmentInfo()
+	public function getAttachmentInfo( $id )
 	{}
 
 	/**
@@ -441,8 +543,13 @@ class Client extends AbstractService
 	 * Description Uploads a file as a given media id. Available parameters are:
 	 *
 	 * $params['ow'] = true if file is to overwrite an already existing media object of the given id
+	 *
+	 * @param string $id
+	 * @param string $data
+	 * @param array $params
+	 * @return void
 	 */
-	public function putAttachment()
+	public function putAttachment( $id, $data, array $params = null )
 	{}
 
 	/**
@@ -452,8 +559,11 @@ class Client extends AbstractService
 	 * Parameters (String) id
 	 * Data
 	 * Description Deletes a file. Fails if the file is still referenced from any page in the wiki.
+	 *
+	 * @param string $id
+	 * @return void
 	 */
-	public function deleteAttachment()
+	public function deleteAttachment( $id )
 	{}
 
 	/**
@@ -463,8 +573,13 @@ class Client extends AbstractService
 	 * Parameters (String) scope, (String) username, (int) permission
 	 * Data (boolean) return true if the rule was correctly added
 	 * Description Add an ACL rule. Use @groupname instead of user to add an ACL rule for a group
+	 *
+	 * @param string $scope
+	 * @param string $username
+	 * @param int $permission
+	 * @return boolean
 	 */
-	public function addAcl()
+	public function addAcl( $scope, $username, $permission )
 	{}
 
 	/**
@@ -474,7 +589,11 @@ class Client extends AbstractService
 	 * Parameters (String) scope, (String) username
 	 * Data (boolean) return true if the rules were correctly deleted
 	 * Description Delete any ACL rule matching the given scope and user. Use @groupname instead of user to delete the ACL rules for the group
+	 *
+	 * @param string $scope
+	 * @param string $username
+	 * @return boolean
 	 */
-	public function delAcl()
+	public function delAcl( $scope, $username )
 	{}
 }

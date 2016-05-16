@@ -98,9 +98,6 @@ abstract class AbstractCommand extends TableCommand
 	 */
 	protected function configure()
 	{
-		$this->addOption( "--user", "u", InputOption::VALUE_REQUIRED, "Dokuwiki user name." );
-		$this->addOption( "--password", "p", InputOption::VALUE_REQUIRED, "Dokuwiki user password." );
-		$this->addOption( "--passwordFile", "pf", InputOption::VALUE_REQUIRED, "Dokuwiki user password file." );
 	}
 
 	/**
