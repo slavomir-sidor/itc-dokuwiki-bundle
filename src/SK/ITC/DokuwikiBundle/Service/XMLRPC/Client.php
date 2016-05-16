@@ -8,6 +8,7 @@ namespace SK\ITC\DokuwikiBundle\Service\XMLRPC;
 
 use Monolog\Logger;
 use PhpXmlRpc\PhpXmlRpc;
+use PhpXmlRpc\Request;
 
 class Client extends AbstractService
 {
@@ -20,25 +21,16 @@ class Client extends AbstractService
 	protected $client;
 
 	/**
-	 * SK ITC Dokuwiki Bundle Service XMLRPC Client Host
-	 *
-	 * @var string
-	 */
-	protected $host;
-
-	/**
 	 * Constructs SK ITC Dokuwiki Bundle Service XMLRPC Client
 	 *
 	 * @param Logger $logger
 	 * @param PhpXmlRpc $client
-	 * @param string $host
 	 */
-	public function __construct( Logger $logger, PhpXmlRpc $client, $host )
+	public function __construct( Logger $logger, PhpXmlRpc $client )
 	{
 		parent::__construct( $logger );
 
 		$this->setClient( $client );
-		$this->setHost( $host );
 	}
 
 	/**
@@ -91,13 +83,14 @@ class Client extends AbstractService
 	 * Description Lists all pages within a given namespace. The options are passed directly to search_allpages().
 	 * Since 2009-03-06 (1)
 	 *
-	 * @param string $namspace
+	 * @param string $namespace
 	 * @param array $options
 	 * @return array
 	 */
-	public function getPagelist( $namspace, array $options )
+	public function getPagelist( $namespace, array $options )
 	{
-		$request = new Request();
+		$request = new Request("dokuwiki.getPagelist",array());
+
 	}
 
 	/**
@@ -109,7 +102,34 @@ class Client extends AbstractService
 	 * @return string
 	 */
 	public function getVersion()
-	{}
+	{
+		$req = new PhpXmlRpc\Request( 'mail.send',
+			array(
+				new PhpXmlRpc\Value( $_POST["mailto"] ),
+				new PhpXmlRpc\Value( $_POST["mailsub"] ),
+				new PhpXmlRpc\Value( $_POST["mailmsg"] ),
+				new PhpXmlRpc\Value( $_POST["mailfrom"] ),
+				new PhpXmlRpc\Value( $_POST["mailcc"] ),
+				new PhpXmlRpc\Value( $_POST["mailbcc"] ),
+				new PhpXmlRpc\Value( "text/plain" )
+			) );
+
+		$client = new PhpXmlRpc\Client( $server );
+		$client->setDebug( 2 );
+		$resp = $client->send( $req );
+		if( ! $resp->faultCode() )
+		{
+			print "Mail sent OK<br/>\n";
+		}
+		else
+		{
+			print "<fonr color=\"red\">";
+			print "Mail send failed<br/>\n";
+			print "Fault: ";
+			print "Code: " . htmlspecialchars( $resp->faultCode() ) . " Reason: '" . htmlspecialchars( $resp->faultString() ) . "'<br/>";
+			print "</font><br/>";
+		}
+	}
 
 	/**
 	 * dokuwiki.getTime

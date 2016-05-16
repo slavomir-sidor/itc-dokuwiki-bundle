@@ -10,8 +10,8 @@
 	],
 	"minimum-stability" : "dev",
 	"autoload" : {
-		"psr-0" : {
-			"SK\\ITC\\DokuwikiBundle" : "src/"
+		"psr-4" : {
+			"" : "src/"
 		}
 	},
 	"bin" : [

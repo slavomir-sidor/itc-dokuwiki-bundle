@@ -140,8 +140,10 @@
 	<services>
 
 		<service
-			id="sk.itc.dokuwikibundle.xmlrpc"
-			class="%sk.itc.dokuwikibundle.xmlrpc.class%" />
+			id="xmlrpc.dokuwiki.client"
+			class="%sk.itc.dokuwikibundle.xmlrpc.class%">
+			<argument type="string">%sk.itc.dokuwikibundle.xmlrpc.client.host% </argument>
+		</service>
 
 		<service
 			id="sk.itc.dokuwikibundle.xmlrpc.client"
@@ -153,7 +155,7 @@
 
 			<argument
 				type="service"
-				id="sk.itc.dokuwikibundle.xmlrpc" />
+				id="xmlrpc.dokuwiki.client" />
 
 		</service>
 
