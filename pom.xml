@@ -11,6 +11,7 @@
 		<version>0.0.22-SNAPSHOT</version>
 	</parent>
 
+	<groupId>sk.itcloud.symfony</groupId>
 	<artifactId>itc-dokuwiki-bundle</artifactId>
 	<packaging>jar</packaging>
 
