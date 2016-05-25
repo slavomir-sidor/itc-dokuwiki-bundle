@@ -10,7 +10,7 @@
 	"minimum-stability" : "dev",
 	"autoload" : {
 		"psr-4" : {
-			"" : "src/"
+			"SK\\ITC\\DokuwikiBundle" : "src/"
 		}
 	},
 	"bin" : [
@@ -26,7 +26,7 @@
 	"repositories" : [{
 			"type" : "vcs",
 			"url" : "git@github.com:slavomirkuzma/itc-dokuwiki-bundle.git"
-		},{
+		}, {
 			"type" : "vcs",
 			"url" : "git@github.com:slavomirkuzma/itc-bundle.git"
 		}, {

@@ -13,6 +13,7 @@
 
 	<groupId>sk.itcloud.symfony</groupId>
 	<artifactId>itc-dokuwiki-bundle</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<organization>
