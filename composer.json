@@ -25,10 +25,13 @@
 	},
 	"repositories" : [{
 			"type" : "vcs",
-			"url" : "git@github.com:slavomirkuzma/itc-dokuwiki-bundle.git"
+			"url" : "git@github.com:slavomirkuzma/itc-bundle.git"
 		}, {
 			"type" : "vcs",
-			"url" : "git@github.com:slavomirkuzma/itc-bundle.git"
+			"url" : "git@github.com:slavomirkuzma/itc-monitor-bundle.git"
+		}, {
+			"type" : "vcs",
+			"url" : "git@github.com:slavomirkuzma/itc-dokuwiki-bundle.git"
 		}, {
 			"type" : "vcs",
 			"url" : "git@github.com:slavomirkuzma/php-raml-parser.git"
